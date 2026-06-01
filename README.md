@@ -12,3 +12,8 @@ this repository is created to deploy application to Kubernetes cluster from a pr
 - in `my-app-js-deployment.yaml`, the attribute **imagePullPolicy** forces docker to pull the image from repository everytime the pod gets created. 
 
 - in `my-app-js-deployment.yaml`, attribute **imagePullSecrets** configures the deployment to get access to Secret Component. 
+
+- Approaches how to create a secret component:
+   1. apply docker-secret.yaml: *kubectl apply -f docker-secret.yaml*
+   2. After copying the config.json from minikube: *kubectl create secret generic my-registry-key --from-file=.dockerconfigjson=.docker/config.json --type=kubernetes.io/dockerconfigjson*
+   3. All in one step: *kubectl create secret docker-registry my-registry-key --docker-server=AWS_URI --docker-username=AWS --docker-password=AuthenticationToken*
