@@ -5,7 +5,7 @@ this repository is created to deploy application to Kubernetes cluster from a pr
 - Docker image is available in private AWS ECR repository
 - to get authentication token from AWS resitory, following command can be used: *aws ecr get-login-password*. After successful docker login commnad, the authentication token is added to a ~/.docker/config.json file.  
 - To ssh to minikube: *minikube ssh*
-- Once ssh in minikube, the *docker login --username AWS -p <authentication_token> <repositoryURI>*
+- Once ssh in minikube, the *docker login --username AWS -p <authentication_token> repositoryURI*
 - Content of `config.json` file must be base64 encoded to save credentials inside Secret component: *cat config.json | base64 --wrap-0*
 - `config.json` can be also copied from minikube to localhost: *minikube cp minikube:/path localpath* if needed. 
 
